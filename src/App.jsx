@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 
 import LoadingScreen from './components/LoadingScreen';
 import ProgressBar from './components/ProgressBar';
@@ -32,13 +30,7 @@ export default function App() {
     return localStorage.getItem('theme') === 'light';
   });
 
-useEffect(() => {
-  AOS.init({
-    duration: 800,
-    once: true,
-    offset: 100,
-  });
-}, []);
+
 
   useEffect(() => {
     if (isLight) {
