@@ -20,7 +20,7 @@ export default function FAB() {
         <button
           className="fab-option"
             onClick={() => { const link = document.createElement("a");
-            link.href = "/myapp.apk";
+            link.href = "/MyApp.apk";
             link.setAttribute("download", "MyApp.apk");
             document.body.appendChild(link);
             link.click();
