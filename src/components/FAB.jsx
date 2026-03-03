@@ -18,10 +18,10 @@ export default function FAB() {
       </button>
       <div className={`fab-options${open ? ' active' : ''}`}>
         <a href="/MyApp.apk" download>
-  <button className="fab-option" title="Download App">
-    <i className="fas fa-download"></i>
-  </button>
-</a>
+        <button className="fab-option" title="Download App">
+          <i className="fas fa-download"></i>
+        </button>
+        </a>
         <button
           className="fab-option"
           onClick={() => scrollTo('newsletter')}
