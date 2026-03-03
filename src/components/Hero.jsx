@@ -43,6 +43,7 @@ export default function Hero() {
       <p><span ref={typedRef}></span></p>
       <a href="/MyApp.apk" download>
         <button className="download-btn ripple" title="Download App"></button>
+        <i className="fas fa-download"></i>
       </a>
     </section>
   );
