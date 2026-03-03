@@ -41,8 +41,8 @@ export default function Hero() {
         Interactive dashboards. AI-powered predictions. Track your Expenses Easily.
       </p>
       <p><span ref={typedRef}></span></p>
-      <a href="https://drive.google.com/file/d/1R5BDNtHQ84c0n0RW-d0jcZw5IQdmz0wo/view?usp=drive_link">
-        <button className="download-btn ripple">Download App</button>
+      <a href="/MyApp.apk" download>
+        <button className="download-btn ripple" title="Download App"></button>
       </a>
     </section>
   );
