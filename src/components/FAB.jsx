@@ -19,11 +19,17 @@ export default function FAB() {
       <div className={`fab-options${open ? ' active' : ''}`}>
         <button
           className="fab-option"
-          onClick={() => window.open('https://drive.google.com/file/d/1R5BDNtHQ84c0n0RW-d0jcZw5IQdmz0wo/view?usp=drive_link')}
+            onClick={() => { const link = document.createElement("a");
+            link.href = "/myapp.apk";
+            link.setAttribute("download", "MyApp.apk");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+          }}
           title="Download App"
         >
-          <i className="fas fa-download"></i>
-        </button>
+  <i className="fas fa-download"></i>
+</button>
         <button
           className="fab-option"
           onClick={() => scrollTo('newsletter')}
