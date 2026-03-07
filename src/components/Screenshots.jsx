@@ -9,6 +9,7 @@ import signup from "../assets/screenshots/signup.jpeg";
 import screens from "../assets/screenshots/screens.jpeg";
 import dashboard from "../assets/screenshots/dashboard.jpeg";
 import insight from "../assets/screenshots/insight.jpeg";
+//ujjwal
 import notification from "../assets/screenshots/notification.jpeg";
 import transaction from "../assets/screenshots/transaction.jpeg";
 import profile from "../assets/screenshots/profile.jpeg";
