@@ -18,7 +18,6 @@ import Newsletter from './components/Newsletter';
 import About from './components/About';
 import Footer from './components/Footer';
 import Popup from './components/Popup';
-import FAB from './components/FAB';
 import ChatWidget from './components/ChatWidget';
 import CursorTrail from './components/CursorTrail';
 import BackToTop from './components/BackToTop';
