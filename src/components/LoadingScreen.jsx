@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 export default function LoadingScreen() {
   const [hidden, setHidden] = useState(false);
@@ -7,20 +7,28 @@ export default function LoadingScreen() {
   useEffect(() => {
     const hideTimer = setTimeout(() => {
       setHidden(true);
-      const removeTimer = setTimeout(() => setRemoved(true), 500);
-      return () => clearTimeout(removeTimer);
     }, 2000);
-    return () => clearTimeout(hideTimer);
+
+    const removeTimer = setTimeout(() => {
+      setRemoved(true);
+    }, 2500); // slightly after fade-out
+
+    return () => {
+      clearTimeout(hideTimer);
+      clearTimeout(removeTimer);
+    };
   }, []);
 
   if (removed) return null;
 
   return (
-    <div className={`loading-screen${hidden ? ' hidden' : ''}`}>
+    <div className={`loading-screen ${hidden ? "hidden" : ""}`}>
       <div className="loading-content">
         <div className="loading-spinner"></div>
-        <h2>MoneyMINDER AI</h2>
-        <p>Loading your financial future...</p>
+        <h2 className="loading-title">MoneyMINDER AI</h2>
+        <p className="loading-subtitle">
+          Loading your financial future...
+        </p>
       </div>
     </div>
   );

@@ -1,38 +1,41 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from "react";
 
 export default function CursorTrail() {
   const trailRef = useRef(null);
 
   useEffect(() => {
-    let mouseX = 0, mouseY = 0;
-    let trailX = 0, trailY = 0;
-    let animId;
+    if (window.innerWidth < 768) return; // Disable on mobile
+
+    let mouseX = 0;
+    let mouseY = 0;
+    let trailX = 0;
+    let trailY = 0;
+    let animationFrame;
 
     const handleMouseMove = (e) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
     };
 
-    const update = () => {
-      trailX += (mouseX - trailX) * 0.1;
-      trailY += (mouseY - trailY) * 0.1;
+    const animate = () => {
+      trailX += (mouseX - trailX) * 0.12;
+      trailY += (mouseY - trailY) * 0.12;
 
       if (trailRef.current) {
-        trailRef.current.style.left = trailX + 'px';
-        trailRef.current.style.top = trailY + 'px';
+        trailRef.current.style.transform = `translate3d(${trailX}px, ${trailY}px, 0)`;
       }
 
-      animId = requestAnimationFrame(update);
+      animationFrame = requestAnimationFrame(animate);
     };
 
-    document.addEventListener('mousemove', handleMouseMove);
-    animId = requestAnimationFrame(update);
+    document.addEventListener("mousemove", handleMouseMove);
+    animationFrame = requestAnimationFrame(animate);
 
     return () => {
-      document.removeEventListener('mousemove', handleMouseMove);
-      cancelAnimationFrame(animId);
+      document.removeEventListener("mousemove", handleMouseMove);
+      cancelAnimationFrame(animationFrame);
     };
   }, []);
 
-  return <div className="cursor-trail" ref={trailRef} />;
+  return <div className="cursor-trail" ref={trailRef}></div>;
 }

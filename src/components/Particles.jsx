@@ -1,42 +1,43 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
 export default function Particles({ isLight }) {
   useEffect(() => {
-    const loadParticles = () => {
+    const initParticles = () => {
       if (!window.particlesJS) return;
 
-      const particleColor = isLight ? '#053F5C' : '#F27F0C';
-      const lineColor = isLight ? '#053F5C' : '#F27F0C';
+      const particleColor = isLight ? "#053F5C" : "#F27F0C";
 
-      window.particlesJS('particles-js', {
+      // Destroy existing instance
+      if (window.pJSDom && window.pJSDom.length > 0) {
+        window.pJSDom.forEach((instance) => instance.pJS.fn.vendors.destroypJS());
+        window.pJSDom = [];
+      }
+
+      window.particlesJS("particles-js", {
         particles: {
-          number: { value: 80, density: { enable: true, value_area: 800 } },
+          number: { value: 70, density: { enable: true, value_area: 800 } },
           color: { value: particleColor },
-          shape: { type: 'circle' },
-          opacity: { value: 4, random: true },
+          shape: { type: "circle" },
+          opacity: { value: 0.5, random: true },
           size: { value: 3, random: true },
           line_linked: {
             enable: true,
-            distance: 100,
-            color: lineColor,
-            opacity: 1,
+            distance: 120,
+            color: particleColor,
+            opacity: 0.4,
             width: 1,
           },
           move: {
             enable: true,
-            speed: 2,
-            direction: 'none',
-            random: false,
-            straight: false,
-            out_mode: 'out',
-            bounce: false,
+            speed: 1.5,
+            out_mode: "out",
           },
         },
         interactivity: {
-          detect_on: 'canvas',
+          detect_on: "canvas",
           events: {
-            onhover: { enable: true, mode: 'repulse' },
-            onclick: { enable: true, mode: 'push' },
+            onhover: { enable: true, mode: "repulse" },
+            onclick: { enable: true, mode: "push" },
             resize: true,
           },
         },
@@ -44,34 +45,25 @@ export default function Particles({ isLight }) {
       });
     };
 
-    // particles.js needs the script loaded
     if (window.particlesJS) {
-      loadParticles();
+      initParticles();
     } else {
-      const script = document.createElement('script');
-      script.src = 'https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js';
-      script.onload = loadParticles;
+      const script = document.createElement("script");
+      script.src =
+        "https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js";
+      script.onload = initParticles;
       document.body.appendChild(script);
     }
-  }, []);
 
-  // Update particle colors when theme changes
-  useEffect(() => {
-    if (window.pJSDom && window.pJSDom[0] && window.pJSDom[0].pJS) {
-      const particleColor = isLight ? '#053F5C' : '#F27F0C';
-      const lineColor = isLight ? '#053F5C' : '#F27F0C';
-      const pJS = window.pJSDom[0].pJS;
-      pJS.particles.color.value = particleColor;
-      pJS.particles.line_linked.color = lineColor;
-
-      if (pJS.particles.array) {
-        pJS.particles.array.forEach((particle) => {
-          particle.color.value = particleColor;
-        });
+    return () => {
+      if (window.pJSDom && window.pJSDom.length > 0) {
+        window.pJSDom.forEach((instance) =>
+          instance.pJS.fn.vendors.destroypJS()
+        );
+        window.pJSDom = [];
       }
-      pJS.fn.particlesRefresh();
-    }
+    };
   }, [isLight]);
 
-  return <div id="particles-js" />;
+  return <div id="particles-js" className="particles-background"></div>;
 }

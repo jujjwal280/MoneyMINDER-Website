@@ -11,23 +11,36 @@ export default function TechStack() {
     { name: 'JavaScript', icon: 'javascript/javascript-original.svg' },
     { name: 'GitHub', icon: 'github/github-original.svg' },
     { name: 'Git', icon: 'git/git-original.svg' },
+    { name: 'React', icon: 'react/react-original.svg' },
+    { name: 'Replit', icon: 'https://cdn.simpleicons.org/replit' },
+    { name: 'Render', icon: 'https://cdn.simpleicons.org/render' },
   ];
 
   return (
     <section id="tech" className="section">
       <h2 className="section-title">👨‍💻 Tech Stack</h2>
+
       <div
         className="normal-cards"
-        style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'center', alignItems: 'center' }}
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "1rem",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
       >
-        {techs.map((tech, i) => (
-          <div className="normal-card" key={i} data-tooltip={tech.name}>
-            <img
-              src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${tech.icon}`}
-              alt={tech.name}
-            />
-          </div>
-        ))}
+        {techs.map((tech, i) => {
+          const src = tech.icon.startsWith("http")
+            ? tech.icon
+            : `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${tech.icon}`;
+
+          return (
+            <div className="normal-card" key={i} data-tooltip={tech.name}>
+              <img src={src} alt={tech.name} width="50" height="50" />
+            </div>
+          );
+        })}
       </div>
     </section>
   );

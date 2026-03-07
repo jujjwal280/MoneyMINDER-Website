@@ -49,7 +49,7 @@ function Counter({ target, started }) {
     if (!started) return;
 
     let current = 0;
-    const increment = target / 100;
+    const increment = target / 120;
     const timer = setInterval(() => {
       current += increment;
       if (current >= target) {

@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MoneyMINDER AI - Smart Expense Management with AI</title>
+
+  <meta name="description"
+    content="MoneyMINDER AI helps you automatically track expenses, manage transactions with an interactive dashboard, and get accurate future spending insights using advanced AI models like LSTM and ARIMA.">
+  <meta name="keywords"
+    content="expense tracker, AI finance, budget app, spending analysis, financial management, money tracker, automatic expense tracking, LSTM, ARIMA">
+  <meta name="author" content="Ujjwal Jain">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="MoneyMINDER AI - Smart Expense Management">
+  <meta property="og:description"
+    content="Automatically track expenses, analyze spending with an interactive dashboard, and predict costs with advanced AI.">
+  <meta property="og:url" content="https://moneyminder-ai.replit.app">
+  <meta property="og:image" content="images/screenshoot1.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MoneyMINDER AI - Smart Expense Management">
+  <meta name="twitter:description"
+    content="AI-powered expense tracking, interactive dashboards, and financial forecasting.">
+  <meta name="twitter:image" content="images/screenshoot1.png">
+
+  <link rel="icon" type="image/x-icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💰</text></svg>">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+</head>
+
+<body>
+  <div id="loadingScreen" class="loading-screen">
+    <div class="loading-content">
+      <div class="loading-spinner"></div>
+      <h2>MoneyMINDER AI</h2>
+      <p>Loading your financial future...</p>
+    </div>
+  </div>
+
+  <div id="particles-js"></div>
+
+  <div id="progressBar" class="progress-bar"></div>
+
+  <nav class="navbar">
+    <div class="logo">MoneyMINDER AI</div>
+    <div class="menu-toggle" id="menuToggle">☰</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#demo"><b>Demo</b></a></li>
+      <li><a href="#testimonials"><b>Feedback</b></a></li>
+      <li><a href="#blogs"><b>Blog</b></a></li>
+      <li><a href="#screens"><b>App Screen</b></a></li>
+      <li><a href="#features"><b>Features</b></a></li>
+      <li><a href="#tech"><b>Tech Stack</b></a></li>
+      <li><a href="#about"><b>About</b></a></li>
+    </ul>
+    <div class="theme-toggle" id="themeToggle" title="Toggle Theme">🌙</div>
+  </nav>
+
+
+  <section class="hero">
+    <h1 class="hero-title">Smarter Expense Management</h1>
+    <p class="hero-subtitle">Interactive dashboards. AI-powered predictions. Track your Expenses Easily. </p>
+    <p><span id="typed-text"></span></p>
+    <a href="https://drive.google.com/file/d/1R5BDNtHQ84c0n0RW-d0jcZw5IQdmz0wo/view?usp=drive_link"><button
+        class="download-btn ripple">Download App</button></a>
+  </section>
+
+
+  <section id="stats" class="section">
+    <h2 class="section-title">📈 Our Impact</h2>
+    <div class="stats-container">
+      <div class="stat-box">
+        <h3><span class="count" data-target="1000">0</span>+</h3>
+        <p>Downloads</p>
+      </div>
+      <div class="stat-box">
+        <h3><span class="count" data-target="98">0</span>%</h3>
+        <p>Prediction Accuracy</p>
+      </div>
+      <div class="stat-box">
+        <h3><span class="count" data-target="4.8">0</span>★</h3>
+        <p>User Rating</p>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="demo" class="section">
+    <h2 class="section-title">📱 App Demo</h2>
+    <div class="demo-container">
+      <div class="video-wrapper">
+        <iframe src="images/video.jpg" title="MoneyMINDER AI Demo" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="testimonials" class="section">
+    <h2 class="section-title">💬 What Users Say</h2>
+    <div class="normal-cards">
+      <div class="normal-card">
+        <p>“MoneyMINDER AI changed the way I manage my expenses. The automatic SMS detection is a game-changer!”</p>
+        <a href="#" target="_blank">- Gourav Srivastava</a>
+      </div>
+      <div class="normal-card">
+        <p>“I love the AI forecasts. It’s like having a financial assistant in my pocket.”</p>
+        <a href="#" target="_blank">- Vidhika Mohan</a>
+      </div>
+      <div class="normal-card">
+        <p>“Beautiful interactive dashboard, smooth experience, and great insights into my spending habits.”</p>
+        <a href="#" target="_blank">- Vasu Rohilla</a>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="feedback" class="section">
+    <h2 class="section-title">📨 Try It. Tell Us.</h2>
+
+    <div class="feedback-container">
+      <div class="demo-box">
+        <p>Ready to experience MoneyMINDER AI?</p>
+        <a href="https://www.youtube.com/watch?v=pjY5KaxYVIE&t=3290s" target="_blank">
+          <button class="download-btn ripple">Launch Live Demo 🚀</button>
+        </a>
+      </div>
+
+      <form id="feedback-form" class="feedback-form">
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea placeholder="Your Feedback" rows="4" required></textarea>
+        <button type="submit">Send Feedback</button>
+      </form>
+    </div>
+  </section>
+
+
+  <section id="blogs" class="section">
+    <h2 class="section-title">📰 Blog & Updates</h2>
+    <div class="normal-cards">
+      <div class="normal-card">
+        <h3>💡 5 Smart Ways to Cut Monthly Expenses</h3>
+        <p>Learn practical methods to reduce your daily spending without sacrificing comfort.</p>
+        <a href="#" target="_blank">Read More →</a>
+      </div>
+      <div class="normal-card">
+        <h3>📊 Behind Our AI: LSTM, ARIMA & More</h3>
+        <p>Explore how our ensemble of AI models provides highly accurate spending predictions.</p>
+        <a href="#" target="_blank">Read More →</a>
+      </div>
+      <div class="normal-card">
+        <h3>📱 App v2.0 Coming Soon!</h3>
+        <p>Major UI upgrades, savings tracking, and more. See what’s next in our roadmap.</p>
+        <a href="#" target="_blank">Read More →</a>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="screens" class="section">
+    <h2 class="section-title">📲 App Screens</h2>
+    <div class="demo-container">
+      <div class="screen">
+        <img src="images/screenshoot1.png" alt="Screenshoot 1" class="screen-img active" />
+        <img src="images/screenshoot2.png" alt="Screenshoot 2" class="screen-img" />
+        <img src="images/screenshoot3.png" alt="Screenshoot 3" class="screen-img" />
+
+        <div class="screen-buttons">
+          <button onclick="prevSlide()">‹</button>
+          <button onclick="nextSlide()">›</button>
+        </div>
+      </div>
+    </div>
+    <div class="screenshot-captions" style="text-align: center;">
+      <p id="caption">📊 Interactive Dashboard</p>
+    </div>
+  </section>
+
+
+  <section id="features" class="section">
+    <h2 class="section-title">🚀 Features</h2>
+    <div class="normal-cards">
+
+      <div class="normal-card"
+        data-tooltip="Automatically detects and logs debit transactions from your bank SMS alerts.">
+        <h3>Automatic Deduction</h3>
+        <p>Never miss a transaction. Our app intelligently reads bank SMS to log your debits for you.</p>
+      </div>
+
+      <div class="normal-card" data-tooltip="A dynamic overview of your finances.">
+        <h3>Interactive Dashboard</h3>
+        <p>Visualize your financial health with dynamic charts and cards that respond to your touch.</p>
+      </div>
+
+      <div class="normal-card" data-tooltip="AI-powered sorting for ultimate clarity.">
+        <h3>Smart Categorization</h3>
+        <p>Our AI automatically sorts transactions into categories like Food, Bills, and Shopping for clear analysis.
+        </p>
+      </div>
+
+      <div class="normal-card" data-tooltip="Leverages LSTM, ARIMA, and more for high accuracy.">
+        <h3>Accurate AI Insights</h3>
+        <p>Get highly accurate next-month spending forecasts based on your unique financial history.</p>
+      </div>
+
+      <div class="normal-card" data-tooltip="Set it, track it, achieve it.">
+        <h3>Savings Goals</h3>
+        <p>Set financial goals for your next vacation or gadget and track your progress effortlessly.</p>
+      </div>
+
+      <div class="normal-card" data-tooltip="Your data, your way.">
+        <h3>Custom Reports</h3>
+        <p>Generate weekly, monthly, or custom-date reports to understand spending trends over time.</p>
+      </div>
+
+      <div class="normal-card" data-tooltip="Light or dark, you decide.">
+        <h3>Customizable Themes</h3>
+        <p>Personalize your experience with beautiful light and dark modes to suit your style.</p>
+      </div>
+
+      <div class="normal-card" data-tooltip="Your data is encrypted and synced across devices.">
+        <h3>Bank-Level Security</h3>
+        <p>With secure login and Firebase's robust backend, your financial data is always safe and synced.</p>
+      </div>
+
+      <div class="normal-card" data-tooltip="Send reviews or report issues.">
+        <h3>Feedback</h3>
+        <p>Share thoughts, suggestions, or report issues directly to the development team.</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <section id="ai-model" class="section">
+    <h2 class="section-title">🧠 AI Model Showcase</h2>
+    <div class="ai-showcase"
+      style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 2rem;">
+
+      <div class="lottie-container" style="flex: 1 1 300px; text-align: center;">
+        <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_ktwnwv5m.json" background="transparent"
+          speed="1" style="width: 300px; height: 300px;" loop autoplay>
+        </lottie-player>
+
+      </div>
+
+      <div class="ai-description" style="flex: 1 1 300px; max-width: 500px;">
+        <p style="font-size: 1.1rem; line-height: 1.6;">
+          Our app adapts to your unique spending behavior using a powerful ensemble of forecasting models, including
+          <strong>LSTM, ARIMA, Linear Regression, and Random Forest.</strong>
+          <br /><br />
+          This multi-model approach ensures our predictions are not just smart, but also robust and highly accurate,
+          adapting to both your stable habits and seasonal spending shifts.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <section id="tech" class="section">
+    <h2 class="section-title">👨‍💻 Tech Stack</h2>
+    <div class="normal-cards"
+      style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; align-items: center;">
+
+      <div class="normal-card" data-tooltip="Flutter">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter">
+      </div>
+      <div class="normal-card" data-tooltip="Dart">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" alt="Dart">
+      </div>
+      <div class="normal-card" data-tooltip="Firebase">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase">
+      </div>
+      <div class="normal-card" data-tooltip="Python">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+      </div>
+      <div class="normal-card" data-tooltip="Pandas">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" alt="Pandas">
+      </div>
+      <div class="normal-card" data-tooltip="NumPy">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" alt="NumPy">
+      </div>
+      <div class="normal-card" data-tooltip="HTML5">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
+      </div>
+      <div class="normal-card" data-tooltip="CSS3">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
+      </div>
+      <div class="normal-card" data-tooltip="JavaScript">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+          alt="JavaScript">
+      </div>
+      <div class="normal-card" data-tooltip="GitHub">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
+      </div>
+      <div class="normal-card" data-tooltip="Git">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
+      </div>
+
+    </div>
+  </section>
+
+
+  <section id="newsletter" class="section">
+    <h2 class="section-title">📧 Stay Updated</h2>
+    <div class="newsletter-container">
+      <p class="newsletter-description">Get the latest updates, financial tips, and feature announcements delivered to
+        your inbox.</p>
+      <form id="newsletter-form" class="newsletter-form">
+        <input type="email" placeholder="Enter your email address" required aria-label="Email address">
+        <button type="submit" class="newsletter-btn">Subscribe</button>
+      </form>
+      <p class="newsletter-privacy">We respect your privacy. Unsubscribe at any time.</p>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <h2 class="section-title">👤 About the Developer</h2>
+
+    <div class="normal-card about-wrapper">
+      <p class="description">
+        Hi! I'm <strong>Ujjwal Jain</strong>, a passionate <em>AI Developer</em> and <em>Tech Enthusiast</em>. I created
+        <strong>MoneyMINDER AI</strong> as my major project to make expense management smarter and more intuitive using
+        cutting-edge technology.
+      </p>
+
+      <div class="contact-info">
+        <p><i class="fas fa-envelope"></i> <a href="mailto:jujjwal280@email.com">jujjwa280@gmail.com</a></p>
+        <p><i class="fab fa-github"></i> <a href="https://github.com/jujjwal280"
+            target="_blank">github.com/jujjwal280</a></p>
+      </div>
+    </div>
+  </section>
+
+
+
+  <footer>
+    &copy; 2025 MoneyMINDER AI. All rights reserved.
+  </footer>
+
+
+  <div class="popup hidden" id="launchPopup">
+    <div class="popup-content">
+      <h3>🎉 Welcome to MoneyMINDER AI</h3>
+      <p>Get ready to master your expenses like never before!</p>
+      <button onclick="document.getElementById('launchPopup').classList.add('hidden')">Let’s Go</button>
+    </div>
+  </div>
+
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+  <script>
+    const sections = document.querySelectorAll('.section');
+    window.addEventListener('scroll', () => {
+      const trigger = window.innerHeight * 0.85;
+      sections.forEach(section => {
+        const top = section.getBoundingClientRect().top;
+        if (top < trigger) section.classList.add('visible');
+      });
+    });
+
+    // Popup after load
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const popup = document.getElementById('launchPopup');
+        if (popup) popup.classList.remove('hidden');
+      }, 1000);
+    });
+  </script>
+
+  <script src="script.js"></script>
+
+  <div class="fab-container">
+    <button class="fab-main" id="fabMain">
+      <i class="fas fa-plus"></i>
+    </button>
+    <div class="fab-options" id="fabOptions">
+      <button class="fab-option"
+        onclick="window.open('https://drive.google.com/file/d/1R5BDNtHQ84c0n0RW-d0jcZw5IQdmz0wo/view?usp=drive_link')"
+        title="Download App">
+        <i class="fas fa-download"></i>
+      </button>
+      <button class="fab-option" onclick="document.getElementById('newsletter').scrollIntoView({behavior: 'smooth'})"
+        title="Subscribe">
+        <i class="fas fa-envelope"></i>
+      </button>
+      <button class="fab-option" onclick="document.getElementById('feedback').scrollIntoView({behavior: 'smooth'})"
+        title="Feedback">
+        <i class="fas fa-comment"></i>
+      </button>
+      <button class="fab-option" onclick="window.open('https://github.com/ujjwaljain', '_blank')" title="GitHub">
+        <i class="fab fa-github"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="chat-widget" id="chatWidget">
+    <div class="chat-header" onclick="toggleChat()">
+      <i class="fas fa-robot"></i>
+      <span>AI Assistant</span>
+      <i class="fas fa-chevron-down" id="chatToggle"></i>
+    </div>
+    <div class="chat-body" id="chatBody">
+      <div class="chat-message bot-message">
+        <p>Hi! I'm your MoneyMINDER AI assistant. How can I help you today?</p>
+      </div>
+      <div class="chat-options">
+        <button onclick="addChatMessage('Tell me about features')" class="chat-option">Features</button>
+        <button onclick="addChatMessage('How to download?')" class="chat-option">Download</button>
+        <button onclick="addChatMessage('Pricing info')" class="chat-option">Pricing</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="interactive-elements">
+
+    <div class="cursor-trail" id="cursorTrail"></div>
+  </div>
+
+  <button id="backToTop" title="Go to top">↑</button>
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+</body>
+
+</html>

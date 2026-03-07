@@ -1,38 +1,45 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 export default function Navbar({ isLight, onThemeToggle }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const navbar = document.querySelector('.navbar');
-      if (navbar) {
-        const scrolled = window.pageYOffset;
-        const opacity = Math.min(scrolled / 100, 0.95);
-        navbar.style.background = isLight
-          ? `rgba(226, 246, 246, ${opacity})`
-          : `rgba(18, 18, 18, ${opacity})`;
-      }
+      setScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [isLight]);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleNavClick = (e, href) => {
     e.preventDefault();
     const target = document.querySelector(href);
+
     if (target) {
       const offsetTop = target.offsetTop - 80;
-      window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+      window.scrollTo({ top: offsetTop, behavior: "smooth" });
     }
+
     setMenuOpen(false);
   };
 
   return (
-    <nav className="navbar">
+    <nav
+      className={`navbar ${scrolled ? "navbar-scrolled" : ""} ${
+        isLight ? "light" : "dark"
+      }`}
+    >
       <div className="logo">MoneyMINDER AI</div>
-      <div className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>☰</div>
+
+      <div
+        className={`menu-toggle ${menuOpen ? "open" : ""}`}
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
+        ☰
+      </div>
+
       <ul className={`nav-links${menuOpen ? ' active' : ''}`}>
         <li><a href="#demo" onClick={(e) => handleNavClick(e, '#demo')}><b>Demo</b></a></li>
         <li><a href="#testimonials" onClick={(e) => handleNavClick(e, '#testimonials')}><b>Feedback</b></a></li>
@@ -42,8 +49,13 @@ export default function Navbar({ isLight, onThemeToggle }) {
         <li><a href="#tech" onClick={(e) => handleNavClick(e, '#tech')}><b>Tech Stack</b></a></li>
         <li><a href="#about" onClick={(e) => handleNavClick(e, '#about')}><b>About</b></a></li>
       </ul>
-      <div className="theme-toggle" onClick={onThemeToggle} title="Toggle Theme">
-        {isLight ? '🌞' : '🌙'}
+
+      <div
+        className="theme-toggle"
+        onClick={onThemeToggle}
+        title="Toggle Theme"
+      >
+        {isLight ? "🌞" : "🌙"}
       </div>
     </nav>
   );

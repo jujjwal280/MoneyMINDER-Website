@@ -1,27 +1,26 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 export default function BackToTop() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setVisible(window.pageYOffset > 100);
+      setVisible(window.scrollY > 200);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
     <button
-      id="backToTop"
-      title="Go to top"
+      className={`back-to-top ${visible ? "show" : ""}`}
       onClick={scrollToTop}
-      style={{ display: visible ? 'block' : 'none' }}
+      aria-label="Scroll to top"
     >
       ↑
     </button>
