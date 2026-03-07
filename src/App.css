@@ -1423,12 +1423,6 @@ body.light .faq-answer p {
     bottom: 100px;
     /* Moved higher to avoid footer overlap */
   }
-
-  .fab-container {
-    bottom: 100px;
-    /* Adjusted to accommodate chat widget */
-    right: 20px;
-  }
 }
 
 /* Light Mode Adjustments */
@@ -1439,17 +1433,6 @@ body.light .chat-widget {
 
 body.light .chat-message {
   color: #000;
-}
-
-body.light .fab-option {
-  background: rgba(255, 255, 255, 0.9);
-  color: #053F5C;
-  border-color: #053F5C;
-}
-
-body.light .fab-option:hover {
-  background: #053F5C;
-  color: #fff;
 }
 
 /* Footer */
