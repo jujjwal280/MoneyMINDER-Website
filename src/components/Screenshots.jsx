@@ -1,20 +1,19 @@
 import { useState, useEffect, useCallback } from "react";
 
-import main from "../assets/screenshots/main.jpeg";
-import onboard1 from "../assets/screenshots/onboard2.jpeg";
-import onboard2 from "../assets/screenshots/onboard3.jpeg";
-import onboard3 from "../assets/screenshots/onboard3.jpeg";
-import login from "../assets/screenshots/login.jpeg";
-import signup from "../assets/screenshots/signup.jpeg";
-import screens from "../assets/screenshots/screens.jpeg";
-import dashboard from "../assets/screenshots/dashboard.jpeg";
-import insight from "../assets/screenshots/insight.jpeg";
-//ujjwal
-import notification from "../assets/screenshots/notification.jpeg";
-import transaction from "../assets/screenshots/transaction.jpeg";
-import profile from "../assets/screenshots/profile.jpeg";
-import digitalid from "../assets/screenshots/digitalid.jpeg";
-import feedback from "../assets/screenshots/feedback.jpeg";
+import main from "../assets/Screenshots/main.jpeg";
+import onboard1 from "../assets/Screenshots/onboard2.jpeg";
+import onboard2 from "../assets/Screenshots/onboard3.jpeg";
+import onboard3 from "../assets/Screenshots/onboard3.jpeg";
+import login from "../assets/Screenshots/login.jpeg";
+import signup from "../assets/Screenshots/signup.jpeg";
+import screens from "../assets/Screenshots/screens.jpeg";
+import dashboard from "../assets/Screenshots/dashboard.jpeg";
+import insight from "../assets/Screenshots/insight.jpeg";
+import notification from "../assets/Screenshots/notification.jpeg";
+import transaction from "../assets/Screenshots/transaction.jpeg";
+import profile from "../assets/Screenshots/profile.jpeg";
+import digitalid from "../assets/Screenshots/digitalid.jpeg";
+import feedback from "../assets/Screenshots/feedback.jpeg";
 
 const captions = ["Main", "Onboard1", "Onboard2", "Onboard3", "Signup", "Login", "🏡 Dashboard", "📊 Insights", "💸Transaction", "👤Profile", "🪪Digital ID", "📬Feedback"];
 
